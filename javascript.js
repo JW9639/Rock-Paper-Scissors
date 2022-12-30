@@ -1,10 +1,10 @@
 let scorePlayer = 0;
 let scoreComputer = 0;
 
-function getPlayerChoice(){
-     let choice = prompt();
+function getPlayerChoice() {
+    let choice = prompt();
     return choice.charAt(0).toUpperCase() + choice.slice(1);
-      
+
 
 }
 
@@ -18,7 +18,7 @@ function getComputerChoice() {
 function playRound(playerSelection, compterSelection) {
     console.log("\nUser Choice: " + playerSelection);
     console.log("Computer Choice: " + compterSelection);
-   
+
 
     //Draw
     if (playerSelection === "Rock" && compterSelection === "Rock" ||
@@ -35,26 +35,30 @@ function playRound(playerSelection, compterSelection) {
         return "\nYou win, " + playerSelection + " Beats " + compterSelection;
     }
     //Lose
-    else if(playerSelection === "Rock" && compterSelection === "Paper" ||
+    else if (playerSelection === "Rock" && compterSelection === "Paper" ||
         playerSelection === "Paper" && compterSelection === "Scissors" ||
         playerSelection === "Scissors" && compterSelection === "Rock") {
         scoreComputer++;
         return "\nYou Lose, " + compterSelection + " Beats " + playerSelection;
-        }
+    }
 }
 
 
 function game() {
     for (i = 0; i < 5; i++) {
-        console.log("\nRound " + (i+1))
+        console.log("\nRound " + (i + 1))
         let playerSelection = getPlayerChoice();
         let compterSelection = getComputerChoice();
         console.log(playRound(playerSelection, compterSelection));
         console.log("\nScores");
         console.log("User: " + scorePlayer);
         console.log("Computer: " + scoreComputer);
-      
     }
+    if (scorePlayer > scoreComputer) {
+        console.log("\nYou have beat the computer, congrats!");
+    }
+    else console.log("\nYou have been beaten by the computer, maybe you shold try your luck again");
+
 }
 
 game();
