@@ -15,12 +15,8 @@ function getComputerChoice() {
     return options[randomIndex];
 }
 
-
-let playerSelection = getPlayerChoice();
-let compterSelection = getComputerChoice();
-
 function playRound(playerSelection, compterSelection) {
-    console.log("User Choice: " + playerSelection);
+    console.log("\nUser Choice: " + playerSelection);
     console.log("Computer Choice: " + compterSelection);
    
 
@@ -28,7 +24,7 @@ function playRound(playerSelection, compterSelection) {
     if (playerSelection === "Rock" && compterSelection === "Rock" ||
         playerSelection === "Paper" && compterSelection === "Paper" ||
         playerSelection === "Scissors" && compterSelection === "Scissors") {
-        return "The game is tied";
+        return "\nThe game is tied";
     }
 
     //Win
@@ -36,30 +32,32 @@ function playRound(playerSelection, compterSelection) {
         playerSelection === "Paper" && compterSelection === "Rock" ||
         playerSelection === "Scissors" && compterSelection === "Paper") {
         scorePlayer++;
-        return "You win, " + playerSelection + " Beats " + compterSelection;
+        return "\nYou win, " + playerSelection + " Beats " + compterSelection;
     }
     //Lose
     else if(playerSelection === "Rock" && compterSelection === "Paper" ||
         playerSelection === "Paper" && compterSelection === "Scissors" ||
         playerSelection === "Scissors" && compterSelection === "Rock") {
         scoreComputer++;
-        return "You Lose, " + compterSelection + " Beats " + playerSelection;
+        return "\nYou Lose, " + compterSelection + " Beats " + playerSelection;
         }
 }
 
 
 function game() {
     for (i = 0; i < 5; i++) {
+        console.log("\nRound " + (i+1))
+        let playerSelection = getPlayerChoice();
+        let compterSelection = getComputerChoice();
         console.log(playRound(playerSelection, compterSelection));
-       
-        console.log("Scores");
+        console.log("\nScores");
         console.log("User: " + scorePlayer);
         console.log("Computer: " + scoreComputer);
       
     }
 }
 
-console.log(game());
+game();
 
 
 
