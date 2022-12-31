@@ -1,6 +1,9 @@
 let scorePlayer = 0;
 let scoreComputer = 0;
 
+
+
+
 function getPlayerChoice() {
     let choice = prompt();
     return choice.charAt(0).toUpperCase() + choice.slice(1);
@@ -43,7 +46,25 @@ function playRound(playerSelection, compterSelection) {
     }
 }
 
+function rock(){
+    let playerSelection = "Rock";
+    let compterSelection = getComputerChoice();
+    playRound(playerSelection,compterSelection);
+}
 
+function paper(){
+    let playerSelection = "Paper";
+    let compterSelection = getComputerChoice();
+    playRound(playerSelection,compterSelection);
+}
+
+function scissors(){
+    let playerSelection = "Scissors";
+    let compterSelection = getComputerChoice();
+    playRound(playerSelection,compterSelection);
+}
+
+/*
 function game() {
     for (i = 0; i < 5; i++) {
         console.log("\nRound " + (i + 1))
@@ -63,6 +84,6 @@ function game() {
 
 game();
 
-
+*/
 
 
